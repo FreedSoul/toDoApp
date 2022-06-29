@@ -15,7 +15,6 @@ const Counter = () => {
         >
           back to task list 
           <MdOutlineDeleteForever />
-          {/* count+ */}
         </button>
       </div>
     </div>

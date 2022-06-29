@@ -1,24 +1,35 @@
 import React, { Children, useState } from "react"
+import { MdOutlineDeleteForever } from "react-icons/md"
+import { BsArrowRightSquare } from "react-icons/bs"
+import NewTask from "./NewTask"
 
-const Counter = () => {
-  const [count, setCount] = useState(0)
+const Atask = () => {
+  const [task , setTask] = useState('')
+  const taskList = ['taskita','megatask','task']
+  const list = taskList.map((task) => {
+    return (
+    <NewTask key={task}>{task}</NewTask>
+    )})
   return (
-    <div className="flex h-screen">
-      <div className="flex flex-col">
-        <input type="checkbox" />
-        <h2>{/* {Children} */}</h2>
-      </div>
-      <div className="m-auto">
-        <div className="text-6xl text-red-500">{count}</div>
+    <div className=" ">
+      <div className="flex justify-center my-2">
+        <input
+          className=" bg-secondary rounded-lg mx-3 px-1 py-3 placeholder:text-green-400 font-bold text-green-400"
+          placeholder="add a task..."
+        />
         <button
-          className="px-6 py-2 rounded text-white btn btn-primary"
+          className="px-6 py-2 rounded bg-secondary hover:bg-green-400 text-white"
           type="button"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() =>{}}
         >
-          count+
+          add
         </button>
+      </div>
+      {/* <div className="flex"></div> ------componente lista--------------------------------------------------*/} 
+      <div className="flex-col">
+        {list}
       </div>
     </div>
   )
 }
-export default Counter
+export default Atask
