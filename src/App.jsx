@@ -15,8 +15,8 @@ function App() {
             list of Tasks
           </h1>
         </div>
-        <div className="flex min-h-fit justify-center bg-orange-600">
-          <div className="w-1/2 h-screen bg-slate-500">
+        <div className="flex min-h-fit justify-center bg-gray-900">
+          <div className="overflow-x-auto w-2/3 px-8 h-screen bg-slate-500 rounded-lg">
             <Atask />
           </div>
         </div>

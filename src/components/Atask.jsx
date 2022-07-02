@@ -3,20 +3,20 @@ import { MdOutlineDeleteForever } from "react-icons/md"
 import { BsArrowRightSquare } from "react-icons/bs"
 import NewTask from "./NewTask"
 
-const Atask = (props) => {
-  const [tasklist, settaskList] = useState([])
+const Atask = () => {
+  const [taskList, settaskList] = useState([])
   const [task, setTask] = useState("")
   // const taskList = ['taskita','megatask','task','mm']
 
   const handleDelete = (id) => {
-    settaskList([...tasklist].filter((task) => task.id !== id))
+    settaskList([...taskList].filter((task) => task.id !== id))
   }
 
-  const list = tasklist.map((task) => {
+  const list = taskList.map((task) => {
     return (
       <NewTask
         handleDelete={handleDelete}
-        tasklist={tasklist}
+        tasklist={taskList}
         key={task.id}
         id={task.id}
       >
@@ -24,25 +24,28 @@ const Atask = (props) => {
       </NewTask>
     )
   })
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (e.target.value != "") {
+
+    if(task !== ""){
       const newtask = {
         id: new Date().getTime(),
         text: task,
         completed: false,
       }
-      settaskList([...tasklist, newtask])
-      setTask("")
+      settaskList([...taskList, newtask])
     }
+    
+    setTask("")
   }
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-center my-2">
         <form onSubmit={handleSubmit}>
           <input
-            className="bg-secondary rounded-lg mx-3 px-1 py-3 placeholder:text-green-400 font-bold text-green-400"
+            className={`bg-secondary rounded-lg mx-3 px-1 py-3 placeholder:text-green-400 font-bold text-green-400`}
             type="text"
             name="text"
             value={task}
