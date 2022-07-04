@@ -1,6 +1,5 @@
-import React, { children, useState } from "react"
+import React, { useState } from "react"
 import { MdOutlineDeleteForever } from "react-icons/md"
-import { BsArrowRightSquare } from "react-icons/bs"
 import { BiEdit } from "react-icons/bi"
 import { FcCancel, FcCheckmark } from "react-icons/fc"
 
@@ -12,15 +11,11 @@ const NewTask = (props) => {
   const [updatetask, setupdatetask] = useState("")
 
   const handleUpdate = (id) => {
-
-    const aux = [...props.tasklist].map((task) => {
-      if(task.id === id){
-        task.text = updatetask;
-      }
-    })
-    console.log()
-    // props.settasklist()
-    // setupdatetask("")
+    const aux = [...props.tasklist].filter((task) => (task.id === id))
+    aux[0].text = updatetask
+    console.log(aux[0])
+    props.settaskList([...props.tasklist])
+    setupdatetask("")
   }
 
   return (
@@ -67,7 +62,7 @@ const NewTask = (props) => {
           </>
         ) : (
           <div className="flex ">
-            <form onSubmit={handleUpdate(props.id)} className="flex justify-between">
+            {/* <form onSubmit={} className="flex justify-between"> */}
               <input
                 className={`bg-secondary rounded-lg mx-3 px-6 py-3 placeholder:text-green-400 font-bold text-green-400`}
                 value={updatetask}
@@ -76,13 +71,14 @@ const NewTask = (props) => {
               <button
                 className="mx-1 px-3 py-2 rounded bg-green-50 hover:bg-green-400 text-lime-500"
                 type="button"
-                // onClick={() => {
-                //  setedit(!edit)
-                // }}
+                onClick={() => {
+                  handleUpdate(props.id)
+                  setedit(!edit)
+                }}
               >
                 <FcCheckmark />
               </button>
-            </form>
+            {/* </form> */}
             <button
               className="px-3 py-2 rounded bg-gray-900 hover:bg-green-400 text-lime-500"
               type="button"

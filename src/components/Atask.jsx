@@ -14,7 +14,8 @@ const Atask = () => {
 
   const handleUpdate = (id) => {
     const aux = [...taskList].filter((task) => task.id === id)
-    console.log(task)
+    aux[0].text = 'lalala'
+    console.log(aux[0])
   }
 
   const handleSubmit = (e) => {
@@ -39,6 +40,7 @@ const Atask = () => {
         handleUpdate={handleUpdate}
         handleSubmit={handleSubmit}
         tasklist={taskList}
+        settaskList={settaskList}
         key={task.id}
         id={task.id}
       >
