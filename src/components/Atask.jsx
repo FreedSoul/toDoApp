@@ -1,6 +1,4 @@
-import React, { Children, useState, useEffect } from "react"
-import { MdOutlineDeleteForever } from "react-icons/md"
-import { BsArrowRightSquare } from "react-icons/bs"
+import React, { useState } from "react"
 import NewTask from "./NewTask"
 
 
@@ -10,12 +8,6 @@ const Atask = () => {
 
   const handleDelete = (id) => {
     settaskList([...taskList].filter((task) => task.id !== id))
-  }
-
-  const handleUpdate = (id) => {
-    const aux = [...taskList].filter((task) => task.id === id)
-    aux[0].text = 'lalala'
-    console.log(aux[0])
   }
 
   const handleSubmit = (e) => {
@@ -37,7 +29,6 @@ const Atask = () => {
     return (
       <NewTask
         handleDelete={handleDelete}
-        handleUpdate={handleUpdate}
         handleSubmit={handleSubmit}
         tasklist={taskList}
         settaskList={settaskList}
