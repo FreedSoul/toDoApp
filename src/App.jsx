@@ -1,7 +1,6 @@
 import { useState } from "react"
 import logo from "./logo.svg"
 import "./App.css"
-import Counter from "./components/Counter"
 import { FcTodoList } from "react-icons/fc"
 import Atask from "./components/Atask"
 

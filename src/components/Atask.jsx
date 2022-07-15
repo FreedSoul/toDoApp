@@ -49,7 +49,7 @@ const Atask = () => {
           <input
             className={`bg-secondary rounded-lg mx-3 px-6 py-3 placeholder:text-green-400 font-bold text-green-400`}
             type="text"
-            name="text"
+            name="new-task"
             value={task}
             placeholder="add a task..."
             onChange={(event) => setTask(event.target.value)}
